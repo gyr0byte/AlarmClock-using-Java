@@ -32,9 +32,10 @@ public class AlarmClock implements Runnable{
     private void playSound(String filePath){
         File audioFile = new File(filePath);
         
-        try (AudioInputStream audiostream = AudioSystem.getAudioInputStream(audioFile)){
+        try (AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile)){
             Clip clip = AudioSystem.getClip();
-            
+            clip.open(audioStream);
+            clip.start();
         } 
         catch (UnsupportedAudioFileException e) {
             System.out.println("Unsupported format of audio");
