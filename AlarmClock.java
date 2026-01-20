@@ -11,7 +11,10 @@ public class AlarmClock implements Runnable{
         while (LocalTime.now().isBefore(alarmTime)) { 
             try {
                 Thread.sleep(1000);
-                System.out.println(LocalTime.now());
+                int hours = LocalTime.now().getHour();
+                int minutes = LocalTime.now().getMinute();
+                int seconds = LocalTime.now().getSecond();
+                System.out.printf("%02d: %02d: %02d\n", hours, minutes, seconds);
             } catch (InterruptedException ex) {
                System.out.println("Thread was interrupted");
             }
