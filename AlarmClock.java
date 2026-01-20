@@ -14,7 +14,7 @@ public class AlarmClock implements Runnable{
                 int hours = LocalTime.now().getHour();
                 int minutes = LocalTime.now().getMinute();
                 int seconds = LocalTime.now().getSecond();
-                System.out.printf("%02d: %02d: %02d\n", hours, minutes, seconds);
+                System.out.printf("\r%02d: %02d: %02d", hours, minutes, seconds);
             } catch (InterruptedException ex) {
                System.out.println("Thread was interrupted");
             }
