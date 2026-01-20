@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalTime;
@@ -10,9 +10,11 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class AlarmClock implements Runnable{
     private final LocalTime alarmTime;
     private final String filePath;
-    AlarmClock(LocalTime alarmTime, String filePath) {
+    private final Scanner sc;
+    AlarmClock(LocalTime alarmTime, String filePath, Scanner sc) {
         this.alarmTime = alarmTime;
         this.filePath = filePath;
+        this.sc = sc;
     }
     @Override
     public void run(){
@@ -36,6 +38,10 @@ public class AlarmClock implements Runnable{
             Clip clip = AudioSystem.getClip();
             clip.open(audioStream);
             clip.start();
+            System.out.print("Press *Enter* to stop the alarm ");
+            sc.nextLine();
+            clip.stop();
+            sc.close();
         } 
         catch (UnsupportedAudioFileException e) {
             System.out.println("Unsupported format of audio");
