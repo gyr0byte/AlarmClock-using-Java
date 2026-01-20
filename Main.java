@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-public class AlarmClock {
+public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
