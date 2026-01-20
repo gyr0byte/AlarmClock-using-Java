@@ -10,6 +10,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalTime alarmTime = null;
+        String filePath = "\\AlarmMusic\\music.wav";
 
         while (alarmTime == null) {
             try {
@@ -22,10 +23,10 @@ public class Main {
                 System.out.println("Invalid format. Please use HH:MM:SS");
             }
         }
-        AlarmClock alarmClock = new AlarmClock(alarmTime);
+        AlarmClock alarmClock = new AlarmClock(alarmTime, filePath);
         Thread alarmThread = new Thread(alarmClock);
         alarmThread.start();
-        
+
         sc.close();
     }
 }
