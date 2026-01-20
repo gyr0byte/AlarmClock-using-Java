@@ -22,6 +22,7 @@ public class Main {
                 System.out.println("Invalid format. Please use HH:MM:SS");
             }
         }
+        AlarmClock alarmClock = new AlarmClock(alarmTime);
         sc.close();
     }
 }
